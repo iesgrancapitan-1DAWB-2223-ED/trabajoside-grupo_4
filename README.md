@@ -4,4 +4,4 @@
 
 ## Archivos de NetBeans
 
-[Archivos](C:\Users\dansa\Desktop\1DAW\ED\marín_ferrer\archivos_netbeans.rar)
+[Archivos](https://github.com/iesgrancapitan-1DAWB-2223-ED/trabajoside-grupo_4/blob/main/archivos_netbeans.rar)
