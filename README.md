@@ -1,4 +1,4 @@
-# Grupo 4: NetBeans y Sublime Text
+# Grupo de exposición 4: NetBeans y Sublime Text
 
 ## Daniel Marín López y Jesús Ferrer López
 
