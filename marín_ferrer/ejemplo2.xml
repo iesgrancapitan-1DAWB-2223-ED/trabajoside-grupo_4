@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this template
+-->
+
+
+
+<clases xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ejemplo2.xsd">
+    <clase codigo="DAW-8912" aula="116">
+        <profesorado>
+            <profesor>
+                <nombre>Miguel Ángel</nombre>
+                <apellido>González</apellido>
+                <apellido>Ruz</apellido>
+                <materia-prof codigo_materia="SIIN-9103">
+                    Sistemas Informáticos
+                </materia-prof>
+                <Tutor/>
+            </profesor>
+            <profesor>
+                <nombre>Jorge</nombre>
+                <apellido>Morales</apellido>
+                <apellido>Palos</apellido>
+                <materia-prof codigo_materia="BADA-3016">
+                    Bases de Datos
+                </materia-prof>
+                <materia-prof codigo_materia="EDES-2981">
+                    Entornos de Desarrollo
+                </materia-prof>
+            </profesor>
+        </profesorado>
+        <alumnado>
+            <alumno>
+                <nombre>Mercedes</nombre>
+                <apellido>Redondo</apellido>
+                <apellido>Lillo</apellido>
+                <materias>
+                    <materia-alumno>Sistemas Informáticos</materia-alumno>
+                    <materia-alumno>Programación</materia-alumno>
+                    <materia-alumno>Bases de Datos</materia-alumno>
+                    <materia-alumno>Lenguaje de Marcas y Sistemas de Gestión de la Información</materia-alumno>
+                    <materia-alumno>Entornos de Desarrollo</materia-alumno>
+                </materias>
+                <Delegado/>
+            </alumno>
+            <alumno>
+                <nombre>Daniel</nombre>
+                <apellido>Marín</apellido>
+                <apellido>López</apellido>
+                <materias>
+                    <materia-alumno>Sistemas Informáticos</materia-alumno>
+                    <materia-alumno>Bases de Datos</materia-alumno>
+                    <materia-alumno>Lenguaje de Marcas y Sistemas de Gestión de la Información</materia-alumno>
+                    <materia-alumno>Formación y Orientación Laboral</materia-alumno>
+                </materias>
+            </alumno>
+        </alumnado>
+    </clase>
+</clases>

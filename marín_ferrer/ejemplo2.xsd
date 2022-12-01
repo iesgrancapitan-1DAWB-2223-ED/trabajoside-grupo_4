@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/XML/XmlSchema.xsd to edit this template
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+    
+    <!--ELEMENTOS SIMPLES-->
+    
+    <xs:element name="nombre" type="cad1"/>
+    <xs:element name="apellido" type="cad2"/>
+    <xs:element name="materia-alumno" type="cad2"/>
+    
+    <!--GRUPOS-->
+    
+    <xs:group name="Datos">
+        <xs:sequence>
+            <xs:element ref="nombre" minOccurs="1" maxOccurs="1"/>
+            <xs:element ref="apellido" minOccurs="1" maxOccurs="2"/>
+        </xs:sequence>
+    </xs:group>
+    <xs:group name="materias">
+        <xs:sequence>
+            <xs:element ref="materia-alumno" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:group>
+    
+    <!--ATRIBUTOS-->
+    
+    <xs:attribute name="codigo" type="cod"/>
+    <xs:attribute name="aula" type="aula"/>
+    <xs:attribute name="codigo_materia" type="cod_materia"/>
+    
+    <!--ELEMENTOS COMPLEJOS: PARTE I-->
+    
+    <xs:element name="Tutor">
+        <xs:complexType/>
+    </xs:element>
+    
+    <xs:element name="Delegado">
+        <xs:complexType/>
+    </xs:element>
+    
+    <xs:element name="materias">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="materias"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="materia-prof">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute ref="codigo_materia" use="required"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="materia">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string"/>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="profesor">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="Datos"/>
+                <xs:element ref="materia-prof" minOccurs="1" maxOccurs="unbounded"/>
+                <xs:element ref="Tutor" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="alumno">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group ref="Datos"/>
+                <xs:element ref="materias" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="Delegado" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <!--ELEMENTOS COMPLEJOS: PARTE II-->
+    
+    <xs:element name="profesorado">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="profesor" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="alumnado">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="alumno" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="clase">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="profesorado" maxOccurs="1"/>
+                <xs:element ref="alumnado" maxOccurs="1"/>
+            </xs:sequence>
+            <xs:attribute ref="codigo" use="required"/>
+            <xs:attribute ref="aula" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="clases">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="clase" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <!--TIPOS PERSONALIZADOS-->
+    
+    <xs:simpleType name="cad1">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="30"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="cad2">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="90"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="cod">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{3}-[0-9]{4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="aula">
+        <xs:restriction base="xs:unsignedInt">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="999"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="cod_materia">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{4}-[0-9]{4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
